@@ -3,41 +3,42 @@ function createTitle(bookTitle) {
 }
 
 function buildMainCharacter(name, age, pronouns) {
-  return {
-    name: "Vassya",
-    age: 16,
-    pronouns: "she/her"
+  var character = {
+    name: name,
+    age: age,
+    pronouns: pronouns
  }
+ return character;
 }
 
-function saveReview(review1, reviews) {
-  if (reviews.indexOf(review1) === -1) {
-    return reviews.push(`${review1}`)
+
+function saveReview(review, reviews) {
+  if (!reviews.includes(review)) {
+    return reviews.push(review);
   }
 }
 
+
 function calculatePageCount(bookTitle) {
-  var bookPageCount = (`${bookTitle.length}`* 20);
+  var bookPageCount = bookTitle.length * 20;
   return bookPageCount;
 }
 
-function writeBook(bookTitle, bookCharacter) {
-  return book = {
-    title: `${bookTitle}`,
-    mainCharacter: `${bookCharacter}`,
-    pageCount: (`${bookTitle.length}`* 20),
-    genre: "fantasy"
+
+function writeBook(bookTitle, bookCharacter, genre) {
+  var book = {
+    title: bookTitle,
+    mainCharacter: bookCharacter,
+    pageCount: calculatePageCount(bookTitle),
+    genre: genre
   }
-}
-// confused as there is no pageCount as a parameter
-
-
-function editBook(ghoulBook) {
- ghoulBook.pageCount = (340 / 4) * 3;
- return ghoulBook.pageCount
+    return book;
 }
 
-
+function editBook(book) {
+ book.pageCount = book.pageCount * .75;
+ return book.pageCount
+}
 
 
 module.exports = {
